@@ -1,0 +1,21 @@
+{
+  "name": "agi_dictionary_game",
+  "version": "1.0.0",
+  "description": "Juego de tipo adivinar cuál es la palabra que corresponde al significado mostrado.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AGI",
+    "node",
+    "js",
+    "game"
+  ],
+  "author": "Nicole Venachi <ludwing@unicauca.edu.co>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "urban-dictionary": "^2.2.1"
+  }
+}

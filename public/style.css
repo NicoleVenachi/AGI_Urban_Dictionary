@@ -1,0 +1,9 @@
+/* body {
+  background-color: red;
+} */
+.word {
+  border: 1px solid gray;
+  min-width: 10px;
+  min-height: 10px;
+  margin: 5px 5px;
+}
