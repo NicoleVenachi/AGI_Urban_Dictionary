@@ -1,9 +1,9 @@
 const express = require('express') //Importo express
-const path = require('path')
-const fs = require('fs')
+// const path = require('path')
+// const fs = require('fs')
 
 // var first = 0
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 const router = express.Router() // instancio router de express
 
 const dictionary = require('./modules/dictionary.js')
@@ -12,7 +12,7 @@ const response = require('./network/response.js')
 var app = express () //instacio  modulo express
 
 app.use(express.json()) //defino un doy parser de JSON
-app.use(express.urlencoded({extended: false})) //parser de url
+// app.use(express.urlencoded({extended: false})) //parser de url
 app.use(router) //defino que router hara veces de .use
 app.use('/', express.static('public'))
 
