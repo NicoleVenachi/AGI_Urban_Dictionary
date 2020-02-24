@@ -27,7 +27,37 @@ h1 {
 }
 .main-container {
   margin-top: 5vh;
+  position: relative;
 }
 .capitalize {
   text-transform: capitalize;
+}
+
+/* .start-game{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+} */
+
+.btn-start{
+  width: 400px;
+  height: 100px;
+  background: #ecf0f1;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 200px);
+  background-color: rgb(134, 111, 201);
+  border-width: 2px;
+  border-radius: 5px;
+  font-size: 2.5rem;
+}
+
+
+.hide {
+  display: none;
 }
