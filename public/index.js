@@ -11,10 +11,13 @@ class Game {
     this.inicializar()
   }
   inicializar(){
+    this.first = true
+    this.randomPos = this.randomPosition() //posicion
     this.toggleStartBtn()
-    this.loadInfo()
+    this.loadInfo(this.randomPos)
     this.loadContentInteraction()
   }
+
   toggleStartBtn() {
     if (btnStart.classList.contains('hide')) {
       btnStart.classList.remove('hide')
@@ -23,37 +26,22 @@ class Game {
       btnStart.classList.add('hide')
     }
     }
-  loadContentInteraction() {
-    word1.addEventListener('click', () => {
-      this.loadInfo()
-      alert('Hola')
-    })
 
-    word2.addEventListener('click', () => {
-      this.loadInfo()
-      alert('Hola')
-    })
-
-    word3.addEventListener('click', () => {
-      this.loadInfo()
-      alert('Hola')
-    })
-
-    word4.addEventListener('click', () => {
-      this.loadInfo()
-      alert('Hola')
-    })
-
-  }
-  loadInfo(){
+  loadInfo(randomPosition){
+    const random = randomPosition
+    console.log(random);
     fetch('/word', {method: 'GET'})
       .then(res => res.json())
       .then(data => {
           // console.log(data.body.obj1.word1)
-          text.innerHTML = `DEFINITION: ${data.body.first.definition}`
-          example.innerHTML = `EXAMPLE: ${data.body.first.example}`
-          const randomPosition = Math.ceil(Math.random() *4)
-          switch (randomPosition) {
+
+          this.def = this.indexStr(data.body.first.word, data.body.first.definition)
+          this.ie = this.indexStr(data.body.first.word, data.body.first.example)
+
+          text.innerHTML = `DEFINITION: ${this.def}`
+          example.innerHTML = `EXAMPLE: ${this.ie}`
+
+          switch (random) {
             case 1:
               word1.innerHTML = data.body.first.word
               word2.innerHTML = data.body.second.word
@@ -82,13 +70,74 @@ class Game {
 
               break;
             default:
-
           }
         })
+      }
+  indexStr(wordToReplace, textToEvaluate) {
+    this.wordToReturn = textToEvaluate
+    this.a = 1
+    do {
+      this.pos = this.wordToReturn.indexOf(wordToReplace)
+      this.wordToReturn = this.wordToReturn.replace(wordToReplace, "_____________")
+    } while (this.pos !== -1);
+    return this.wordToReturn
+  }
+
+  loadContentInteraction() {
+
+    word1.addEventListener('click', () => {
+      //confirmar si gana o no
+      this.isItOk(this.randomPos,1)
+      //cargar nueva info
+      this.randomPos = this.randomPosition() //cambio la nueva posicion actual
+      this.loadInfo(this.randomPos)
+    })
+
+    word2.addEventListener('click', () => {
+      //confirmar si gana o no
+      this.isItOk(this.randomPos,2)
+      //cargar nueva info
+      this.randomPos = this.randomPosition()
+      this.loadInfo(this.randomPos)
+    })
+
+    word3.addEventListener('click', () => {
+      //confirmar si gana o no
+      this.isItOk(this.randomPos,3)
+      //cargar nueva info
+      this.randomPos = this.randomPosition()
+      this.loadInfo(this.randomPos)
+    })
+
+    word4.addEventListener('click', () => {
+      //confirmar si gana o no
+      this.isItOk(this.randomPos,4)
+      //cargar nueva info
+      this.randomPos = this.randomPosition()
+      this.loadInfo(this.randomPos)
+    })
+  }
+  isItOk(winningPos, positionSelected) {
+    if(winningPos == positionSelected) {
+      swal({ //devuelve promesa
+        icon: 'success',
+        title: 'Felicitaciones',
+        text: 'Ganaste el juego!'
+      })
+    }
+    else {
+      swal({ //devuelve promesa
+        icon: 'error',
+        title: 'Perdiste',
+        text: 'Lo lamentamos, perdiste el Juego :( '
+      })
+    }
+  }
+
+  randomPosition() {
+    return Math.ceil(Math.random() *4)
   }
 }
-
-
 
 
 function startGame() {
