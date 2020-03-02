@@ -8,5 +8,8 @@
   },
   "author": "Nicole Venachi <ludwing@unicauca.edu.co>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "agi": "^0.0.4",
+    "ding-dong": "^0.1.7"
+  }
 }
