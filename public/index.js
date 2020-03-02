@@ -40,33 +40,36 @@ class Game {
 
           text.innerHTML = `DEFINITION: ${this.def}`
           example.innerHTML = `EXAMPLE: ${this.ie}`
-
+          // this.first = data.body.first.word
+          // this.second = data.body.second.word
+          // this.third = data.body.third.word
+          // this.fourth = data.body.fourth.word
           switch (random) {
             case 1:
-              word1.innerHTML = data.body.first.word
-              word2.innerHTML = data.body.second.word
-              word3.innerHTML = data.body.third.word
-              word4.innerHTML = data.body.fourth.word
+              word1.innerHTML = `1. ${data.body.first.word}`
+              word2.innerHTML = `2. ${data.body.second.word}`
+              word3.innerHTML = `3. ${data.body.third.word}`
+              word4.innerHTML = `4. ${data.body.fourth.word}`
               break;
             case 2:
-              word1.innerHTML = data.body.second.word
-              word2.innerHTML = data.body.first.word
-              word3.innerHTML = data.body.third.word
-              word4.innerHTML = data.body.fourth.word
+              word1.innerHTML = `1. ${data.body.second.word}`
+              word2.innerHTML = `2. ${data.body.first.word}`
+              word3.innerHTML = `3. ${data.body.third.word}`
+              word4.innerHTML = `4. ${data.body.fourth.word}`
 
               break;
             case 3:
-              word1.innerHTML = data.body.third.word
-              word2.innerHTML = data.body.second.word
-              word3.innerHTML = data.body.first.word
-              word4.innerHTML = data.body.fourth.word
+              word1.innerHTML = `1. ${data.body.third.word}`
+              word2.innerHTML = `2. ${data.body.second.word}`
+              word3.innerHTML = `3. ${data.body.first.word}`
+              word4.innerHTML = `4. ${data.body.fourth.word}`
 
               break;
             case 4:
-              word1.innerHTML = data.body.fourth.word
-              word2.innerHTML = data.body.second.word
-              word3.innerHTML = data.body.third.word
-              word4.innerHTML = data.body.first.word
+              word1.innerHTML = `1. ${data.body.fourth.word}`
+              word2.innerHTML = `2. ${data.body.second.word}`
+              word3.innerHTML = `3. ${data.body.third.word}`
+              word4.innerHTML = `4. ${data.body.first.word}`
 
               break;
             default:
